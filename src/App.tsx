@@ -19,10 +19,27 @@ import RnIcon from './assets/images/skill-icons_rn.svg'
 import SwiftIcon from './assets/images/skill-icons_swift.svg'
 import VscodeIcon from './assets/images/skill-icons_vscode.svg'
 import XcodeIcon from './assets/images/skill-icons_xcode.svg'
+import { ProjectCard } from './components/ProjectCard';
 
 const handleAnimationComplete = () => {
   console.log('Animation completed!');
 };
+
+const projects = [
+  {
+    title: "Coursa",
+    highlight: "Running, reimagined",
+    description: "Most novices mistakenly prioritize speed, leading to immediate burnout. Coursa solves this by anchoring training in Zone 2 (aerobic base). Our evidence lies in the success of our 'Endurance First' approach, where we proved that slowing users down actually helped them run longer and more consistently without the breathlessness that typically causes them to quit.",
+    imageUrl: "src/assets/images/coursa.svg"
+  },
+  {
+    title: "NavXBeauty",
+    highlight: "There is no way as such",
+    description: "Cross-platform app with React Native",
+    imageUrl: "/projects/mobile.png",
+    badges: ["React Native", "Expo", "TypeScript"]
+  }
+];
 
 function App() {
 
@@ -62,7 +79,7 @@ function App() {
     </section>
 
     {/* Highlights Section */}
-    <section id="about" className="h-screen w-full flex flex-col items-center justify-center">
+    <section id="about" className="min-h-screen w-full flex flex-col items-center justify-center bg-indigo-100 pb-16">
       <div className="flex flex-col flex-1 h-screen w-full items-center justify-center">
         <div className='my-24'>
         <h1 className='text-4xl font-[SF-Pro] font-bold text-center'>Technologies I've Worked With</h1>
@@ -164,13 +181,12 @@ function App() {
     </section>
 
     {/* iOS Section */}
-    <section id="iOS" className="min-h-screen flex flex-col items-center justify-center px-8 bg-white">
+    <section id="iOS" className="min-h-screen flex flex-col items-center justify-center py-16 bg-indigo-500">
       <div className="max-w-4xl">
         <h3 className="text-5xl font-[SF-Pro] font-bold text-center mb-8">iOS Development</h3>
-        <p className="text-lg font-[inter] text-center text-gray-700">
-          My iOS development portfolio featuring Swift, SwiftUI, and UIKit projects.
-          Explore apps I've built, frameworks I've mastered, and the innovative solutions I've created.
-        </p>
+        { projects.map((project, index) => 
+        (<ProjectCard key={index} {...project}/>)
+        )}
       </div>
     </section>
 
