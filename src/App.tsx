@@ -32,13 +32,35 @@ const projects = [
     description: "Most novices mistakenly prioritize speed, leading to immediate burnout. Coursa solves this by anchoring training in Zone 2 (aerobic base). Our evidence lies in the success of our 'Endurance First' approach, where we proved that slowing users down actually helped them run longer and more consistently without the breathlessness that typically causes them to quit.",
     imageUrl: "src/assets/images/coursa.svg"
   },
+ 
   {
-    title: "NavXBeauty",
+    title: "Coco.co",
     highlight: "There is no way as such",
     description: "Cross-platform app with React Native",
-    imageUrl: "/projects/mobile.png",
+    imageUrl: "src/assets/images/cococo.svg",
     badges: ["React Native", "Expo", "TypeScript"]
-  }
+  }, 
+  {
+    title: "NavXBeauty",
+    highlight: "Redefine your beauty experience",
+    description: "Partnered with FemaleDaily, I created an offline-based navigation app for JakartaXBeauty. The solution was created not only to benefit visitors, but also multiple stakeholders such as vendors and FemaleDaily itself. Leveraging Vision Framework and SwiftUI, NavXBeauty can provide your current location and show all the tenants location without needing an internet connection.",
+    imageUrl: "src/assets/images/navxbeauty.svg",
+    badges: ["React Native", "Expo", "TypeScript"]
+  },
+  {
+    title: "Binsight",
+    highlight: "Revolutionize your way of sorting trash",
+    description: "Cross-platform app with React Native",
+    imageUrl: "src/assets/images/binsight.svg",
+    badges: ["React Native", "Expo", "TypeScript"]
+  },
+  {
+  title: "Eatsway",
+  highlight: "There is no way as such",
+  description: "Cross-platform app with React Native",
+  imageUrl: "/projects/mobile.png",
+  badges: ["React Native", "Expo", "TypeScript"]
+}
 ];
 
 function App() {
@@ -79,7 +101,7 @@ function App() {
     </section>
 
     {/* Highlights Section */}
-    <section id="about" className="min-h-screen w-full flex flex-col items-center justify-center bg-indigo-100 pb-16">
+    <section id="about" className="min-h-screen w-full flex flex-col items-center justify-center pb-16">
       <div className="flex flex-col flex-1 h-screen w-full items-center justify-center">
         <div className='my-24'>
         <h1 className='text-4xl font-[SF-Pro] font-bold text-center'>Technologies I've Worked With</h1>
@@ -181,7 +203,7 @@ function App() {
     </section>
 
     {/* iOS Section */}
-    <section id="iOS" className="min-h-screen flex flex-col items-center justify-center py-16 bg-indigo-500">
+    <section id="iOS" className="min-h-screen flex flex-col items-center justify-center py-16 ">
       <div className="max-w-4xl">
         <h3 className="text-5xl font-[SF-Pro] font-bold text-center mb-8">iOS Development</h3>
         { projects.map((project, index) => 

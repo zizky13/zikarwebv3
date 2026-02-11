@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const Navbar: React.FC = () => {
     const [selectedItem, setSelectedItem] = useState<string>('zikar');
     const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
+    const [textColor, setTextColor] = useState<'white' | 'black'>('black');
     const itemRefs = useRef<{ [key: string]: HTMLLIElement | null }>({});
     const navRef = useRef<HTMLUListElement>(null);
 
@@ -15,6 +16,16 @@ const Navbar: React.FC = () => {
         { id: 'pm', label: 'PM', href: '#pm' },
         { id: 'contact', label: 'Contact Me', href: '#contact' }
     ];
+
+    // Section ID to text color mapping
+    const sectionColors: { [key: string]: 'white' | 'black' } = {
+        'zikar': 'black',
+        'about': 'black',
+        'iOS': 'white',
+        'web': 'black',
+        'pm': 'black',
+        'contact': 'black',
+    };
 
     const updateIndicatorPosition = () => {
         const selectedElement = itemRefs.current[selectedItem];
@@ -62,11 +73,14 @@ const Navbar: React.FC = () => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     const sectionId = entry.target.id;
+                    console.log('Section in view:', sectionId, 'Color:', sectionColors[sectionId]); // Debug log
                     // Map section IDs to menu item IDs
                     const menuItemId = menuItems.find(item => item.href === `#${sectionId}`)?.id;
                     if (menuItemId) {
                         setSelectedItem(menuItemId);
                     }
+                    // Update text color based on section
+                    setTextColor(sectionColors[sectionId] || 'black');
                 }
             });
         };
@@ -129,6 +143,10 @@ const Navbar: React.FC = () => {
                                         e.preventDefault();
                                         setSelectedItem(item.id);
                                         
+                                        // Update text color when clicking
+                                        const sectionId = item.href.substring(1);
+                                        setTextColor(sectionColors[sectionId] || 'black');
+                                        
                                         // Smooth scroll to section
                                         const section = document.querySelector(item.href);
                                         if (section) {
@@ -140,8 +158,8 @@ const Navbar: React.FC = () => {
                                     }}
                                     className={`px-4 py-2 relative z-10 transition-colors cursor-pointer block ${
                                         selectedItem === item.id 
-                                            ? 'font-[SF-Pro] text-black font-medium' 
-                                            : 'font-[SF-Pro] text-white-600 hover:text-black'
+                                            ? `font-[SF-Pro] ${textColor === 'white' ? 'text-white' : 'text-black'} font-medium` 
+                                            : `font-[SF-Pro] ${textColor === 'white' ? 'text-white/70 hover:text-white' : 'text-black/70 hover:text-black'}`
                                     }`}
                                     initial={{ opacity: 0.7 }}
                                     animate={{ 
