@@ -1,7 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const isProjectPage = location.pathname.startsWith('/project/');
+    
     const [selectedItem, setSelectedItem] = useState<string>('zikar');
     const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
     const [textColor, setTextColor] = useState<'white' | 'black'>('black');
@@ -25,6 +30,14 @@ const Navbar: React.FC = () => {
         'web': 'black',
         'pm': 'black',
         'contact': 'black',
+        // Project detail page sections
+        'hero': 'white',
+        'getting-started': 'black',
+        'context': 'black',
+        'challenge': 'black',
+        'solutions': 'black',
+        'contribution': 'black',
+        'learnings': 'black',
     };
 
     const updateIndicatorPosition = () => {
@@ -73,7 +86,6 @@ const Navbar: React.FC = () => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     const sectionId = entry.target.id;
-                    console.log('Section in view:', sectionId, 'Color:', sectionColors[sectionId]); // Debug log
                     // Map section IDs to menu item IDs
                     const menuItemId = menuItems.find(item => item.href === `#${sectionId}`)?.id;
                     if (menuItemId) {
@@ -141,19 +153,36 @@ const Navbar: React.FC = () => {
                                     href={item.href}
                                     onClick={(e) => {
                                         e.preventDefault();
-                                        setSelectedItem(item.id);
                                         
-                                        // Update text color when clicking
-                                        const sectionId = item.href.substring(1);
-                                        setTextColor(sectionColors[sectionId] || 'black');
-                                        
-                                        // Smooth scroll to section
-                                        const section = document.querySelector(item.href);
-                                        if (section) {
-                                            section.scrollIntoView({ 
-                                                behavior: 'smooth',
-                                                block: 'start'
-                                            });
+                                        // If on project page, navigate to home first
+                                        if (isProjectPage) {
+                                            navigate('/');
+                                            // Wait for navigation then scroll
+                                            setTimeout(() => {
+                                                const section = document.querySelector(item.href);
+                                                if (section) {
+                                                    section.scrollIntoView({ 
+                                                        behavior: 'smooth',
+                                                        block: 'start'
+                                                    });
+                                                }
+                                            }, 100);
+                                        } else {
+                                            // On home page, just scroll
+                                            setSelectedItem(item.id);
+                                            
+                                            // Update text color when clicking
+                                            const sectionId = item.href.substring(1);
+                                            setTextColor(sectionColors[sectionId] || 'black');
+                                            
+                                            // Smooth scroll to section
+                                            const section = document.querySelector(item.href);
+                                            if (section) {
+                                                section.scrollIntoView({ 
+                                                    behavior: 'smooth',
+                                                    block: 'start'
+                                                });
+                                            }
                                         }
                                     }}
                                     className={`px-4 py-2 relative z-10 transition-colors cursor-pointer block ${

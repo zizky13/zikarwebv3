@@ -1,4 +1,5 @@
 import './App.css'
+import { useNavigate } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import BlurText from './components/BlurText'
 import SplitText from './components/SplitText';
@@ -20,50 +21,14 @@ import SwiftIcon from './assets/images/skill-icons_swift.svg'
 import VscodeIcon from './assets/images/skill-icons_vscode.svg'
 import XcodeIcon from './assets/images/skill-icons_xcode.svg'
 import { ProjectCard } from './components/ProjectCard';
+import { projects } from './data/projects';
 
 const handleAnimationComplete = () => {
   console.log('Animation completed!');
 };
 
-const projects = [
-  {
-    title: "Coursa",
-    highlight: "Running, reimagined",
-    description: "Most novices mistakenly prioritize speed, leading to immediate burnout. Coursa solves this by anchoring training in Zone 2 (aerobic base). Our evidence lies in the success of our 'Endurance First' approach, where we proved that slowing users down actually helped them run longer and more consistently without the breathlessness that typically causes them to quit.",
-    imageUrl: "src/assets/images/coursa.svg"
-  },
- 
-  {
-    title: "Coco.co",
-    highlight: "There is no way as such",
-    description: "Cross-platform app with React Native",
-    imageUrl: "src/assets/images/cococo.svg",
-    badges: ["React Native", "Expo", "TypeScript"]
-  }, 
-  {
-    title: "NavXBeauty",
-    highlight: "Redefine your beauty experience",
-    description: "Partnered with FemaleDaily, I created an offline-based navigation app for JakartaXBeauty. The solution was created not only to benefit visitors, but also multiple stakeholders such as vendors and FemaleDaily itself. Leveraging Vision Framework and SwiftUI, NavXBeauty can provide your current location and show all the tenants location without needing an internet connection.",
-    imageUrl: "src/assets/images/navxbeauty.svg",
-    badges: ["React Native", "Expo", "TypeScript"]
-  },
-  {
-    title: "Binsight",
-    highlight: "Revolutionize your way of sorting trash",
-    description: "Cross-platform app with React Native",
-    imageUrl: "src/assets/images/binsight.svg",
-    badges: ["React Native", "Expo", "TypeScript"]
-  },
-  {
-  title: "Eatsway",
-  highlight: "There is no way as such",
-  description: "Cross-platform app with React Native",
-  imageUrl: "/projects/mobile.png",
-  badges: ["React Native", "Expo", "TypeScript"]
-}
-];
-
 function App() {
+  const navigate = useNavigate();
 
   return (
   <div className='min-h-screen'>
@@ -203,11 +168,18 @@ function App() {
     </section>
 
     {/* iOS Section */}
-    <section id="iOS" className="min-h-screen flex flex-col items-center justify-center py-16 ">
-      <div className="max-w-4xl">
+    <section id="iOS" className="min-h-screen flex flex-col items-center justify-center py-16">
+      <div className="w-full">
         <h3 className="text-5xl font-[SF-Pro] font-bold text-center mb-8">iOS Development</h3>
         { projects.map((project, index) => 
-        (<ProjectCard key={index} {...project}/>)
+        (<ProjectCard 
+          key={index} 
+          title={project.title}
+          highlight={project.highlight}
+          description={project.description}
+          imageUrl={project.imageUrl}
+          onClick={() => navigate(`/project/${project.id}`)}
+        />)
         )}
       </div>
     </section>

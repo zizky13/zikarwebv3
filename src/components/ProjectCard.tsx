@@ -27,7 +27,7 @@ export function ProjectCard({
 }: ProjectCardProps) {
   return (
     <motion.div
-      className={`relative mx-auto w-full min-w-3xl max-w-4xl cursor-pointer ${className}`}
+      className={`relative mx-auto w-full cursor-pointer ${className}`}
       onClick={onClick}
       whileHover={{ 
         scale: 1.02,
@@ -46,7 +46,7 @@ export function ProjectCard({
       }}
     >
       
-        <div className="m-6 p-6 bg-black rounded-3xl relative">
+        <div className="mb-8 p-6 bg-black rounded-3xl relative">
           <CardTitle className="mb-8">{title}</CardTitle>
           <CardHighlight className="mb-8">{highlight}</CardHighlight>
           <CardDescription className="mb-4">
