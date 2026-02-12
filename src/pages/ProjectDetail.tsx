@@ -64,7 +64,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
       {/* Hero Section */}
       <section
         id="hero"
-        className="min-h-screen flex flex-col items-center justify-center px-6 pt-32 pb-20 relative overflow-hidden rounded-xl"
+        className="min-h-screen flex flex-col items-center justify-center px-6 pt-32 relative overflow-hidden rounded-xl"
       >
         {/* Background Image */}
         {heroImageUrl && (
@@ -104,23 +104,23 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
       {/* Getting Started Section */}
       <section
         id="getting-started"
-        className="min-h-screen flex flex-col items-center justify-center px-6 py-20 bg-white"
+        className="min-h-screen flex flex-col items-center justify-center px-6 py-20"
       >
-        <div className="max-w-4xl w-full">
+        <div className="w-full">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-5xl md:text-6xl font-bold text-black mb-8 font-[SF-Pro]"
           >
-            Getting Started
+            Introduction
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-lg md:text-xl text-gray-700 mb-8 font-[Inter] leading-relaxed"
+            className="text-lg md:text-xl text-gray-700 mb-8 font-[Inter] leading-relaxed text-pretty"
           >
             {gettingStarted.description}
           </motion.p>
@@ -131,34 +131,36 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="mb-8"
+              className="justify-center items-center"
             >
-              <h3 className="text-2xl font-semibold text-black mb-4 font-[SF-Pro]">
+              <h3 className="text-2xl font-semibold text-black mb-8 font-[SF-Pro]">
                 Technologies Used
               </h3>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-4 justify-center items-center">
                 {gettingStarted.technologies.map((tech, index) => (
-                  <span
+                  <motion.span
                     key={index}
-                    className="px-4 py-2 bg-gray-100 rounded-full text-gray-800 font-[Inter] text-sm"
+                    initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                    whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ 
+                      delay: 0.4 + (index * 0.1),
+                      duration: 0.4,
+                      type: "spring",
+                      stiffness: 200,
+                      damping: 15
+                    }}
+                    whileHover={{ 
+                      scale: 1.1,
+                      transition: { duration: 0.2 }
+                    }}
+                    className="px-4 py-2 bg-gray-100 rounded-full bg-gradient-to-b from-black via-black/60 to-white-100 font-[Inter] text-sm text-gray-200 cursor-default"
                   >
                     {tech}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
             </motion.div>
-          )}
-
-          {gettingStarted.imageUrl && (
-            <motion.img
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              src={gettingStarted.imageUrl}
-              alt="Getting Started"
-              className="w-full rounded-3xl shadow-2xl"
-            />
           )}
         </div>
       </section>
@@ -166,7 +168,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
       {/* Context Section */}
       <section
         id="context"
-        className="min-h-screen flex flex-col items-center justify-center px-6 py-20 bg-gray-50"
+        className="min-h-screen flex flex-col items-center justify-center px-6 py-20"
       >
         <div className="max-w-4xl w-full">
           <motion.h2
@@ -204,7 +206,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
       {/* Challenge Section */}
       <section
         id="challenge"
-        className="min-h-screen flex flex-col items-center justify-center px-6 py-20 bg-white"
+        className="min-h-screen flex flex-col items-center justify-center px-6 py-20"
       >
         <div className="max-w-4xl w-full">
           <motion.h2
@@ -250,7 +252,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
       {/* Solutions Section */}
       <section
         id="solutions"
-        className="min-h-screen flex flex-col items-center justify-center px-6 py-20 bg-gray-50"
+        className="min-h-screen flex flex-col items-center justify-center px-6 py-24"
       >
         <div className="max-w-4xl w-full">
           <motion.h2
@@ -272,7 +274,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
           </motion.p>
 
           {solutions.solutions && solutions.solutions.length > 0 && (
-            <div className="space-y-12">
+            <div className="space-y-12 ">
               {solutions.solutions.map((solution, index) => (
                 <motion.div
                   key={index}
@@ -280,7 +282,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.1 * index }}
-                  className="bg-white p-8 rounded-3xl shadow-lg"
+                  className="bg-white p-8 rounded-3xl shadow-xl"
                 >
                   <h3 className="text-3xl font-bold text-black mb-4 font-[SF-Pro]">
                     {solution.title}
@@ -305,7 +307,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
       {/* My Contribution Section */}
       <section
         id="contribution"
-        className="min-h-screen flex flex-col items-center justify-center px-6 py-20 bg-white"
+        className="min-h-screen flex flex-col items-center justify-center px-6 py-16"
       >
         <div className="max-w-4xl w-full">
           <motion.h2
@@ -366,7 +368,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
       {/* Learnings Section */}
       <section
         id="learnings"
-        className="min-h-screen flex flex-col items-center justify-center px-6 py-20 bg-gray-50"
+        className="min-h-screen flex flex-col items-center justify-center px-6 pb-16"
       >
         <div className="max-w-4xl w-full">
           <motion.h2
@@ -409,7 +411,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
       </section>
 
       {/* Footer / Back to Projects */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <motion.a
             href="/"

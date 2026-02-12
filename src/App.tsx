@@ -170,7 +170,7 @@ function App() {
     {/* iOS Section */}
     <section id="iOS" className="min-h-screen flex flex-col items-center justify-center py-16">
       <div className="w-full">
-        <h3 className="text-5xl font-[SF-Pro] font-bold text-center mb-8">iOS Development</h3>
+        <h3 className="text-5xl font-[SF-Pro] font-bold text-center mb-16">iOS Development</h3>
         { projects.map((project, index) => 
         (<ProjectCard 
           key={index} 
@@ -185,12 +185,11 @@ function App() {
     </section>
 
     {/* Web Section */}
-    <section id="web" className="min-h-screen flex flex-col items-center justify-center px-8 bg-gray-50">
+    <section id="web" className="min-h-screen flex flex-col items-center justify-center px-8">
       <div className="max-w-4xl">
         <h3 className="text-5xl font-[SF-Pro] font-bold text-center mb-8">Web Development</h3>
         <p className="text-lg font-[inter] text-center text-gray-700">
-          Full-stack web development projects using React, TypeScript, and modern frameworks.
-          Showcasing responsive designs and interactive user experiences.
+          This section is still under construction...
         </p>
       </div>
     </section>
@@ -200,24 +199,23 @@ function App() {
       <div className="max-w-4xl">
         <h3 className="text-5xl font-[SF-Pro] font-bold text-center mb-8">Product Management</h3>
         <p className="text-lg font-[inter] text-center text-gray-700">
-          Product management experience, case studies, and strategic initiatives.
-          Learn about how I bridge technology and business goals.
+          This section is still under construction...
         </p>
       </div>
     </section>
 
     {/* Contact Section */}
-    <section id="contact" className="min-h-screen flex flex-col items-center justify-center px-8 bg-gray-50">
+    <section id="contact" className="min-h-screen flex flex-col items-center justify-center px-8">
       <div className="max-w-4xl">
         <h3 className="text-5xl font-[SF-Pro] font-bold text-center mb-8">Contact Me</h3>
         <p className="text-lg font-[inter] text-center text-gray-700 mb-8">
           Let's connect! Reach out for collaborations, opportunities, or just to say hello.
         </p>
         <div className="flex justify-center gap-6">
-          <a href="mailto:your.email@example.com" className="px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors">
+          <a href="mailto:zikar.nurizky@gmail.com" className="px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors">
             Email Me
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="px-6 py-3 border-2 border-black rounded-full hover:bg-black hover:text-white transition-colors">
+          <a href="https://www.linkedin.com/in/zikar-nurizky/" target="_blank" rel="noopener noreferrer" className="px-6 py-3 border-2 border-black rounded-full hover:bg-black hover:text-white transition-colors">
             LinkedIn
           </a>
         </div>

@@ -7,13 +7,14 @@ const Navbar: React.FC = () => {
     const location = useLocation();
     const isProjectPage = location.pathname.startsWith('/project/');
     
-    const [selectedItem, setSelectedItem] = useState<string>('zikar');
+    const [selectedItem, setSelectedItem] = useState<string>(isProjectPage ? 'hero' : 'zikar');
     const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
-    const [textColor, setTextColor] = useState<'white' | 'black'>('black');
+    const [textColor, setTextColor] = useState<'white' | 'black'>(isProjectPage ? 'white' : 'black');
     const itemRefs = useRef<{ [key: string]: HTMLLIElement | null }>({});
     const navRef = useRef<HTMLUListElement>(null);
 
-    const menuItems = [
+    // Home page menu items
+    const homeMenuItems = [
         { id: 'zikar', label: 'Zikar Nurizky', href: '#zikar' },
         { id: 'highlights', label: 'Highlights', href: '#about' },
         { id: 'ios', label: 'iOS', href: '#iOS' },
@@ -21,6 +22,20 @@ const Navbar: React.FC = () => {
         { id: 'pm', label: 'PM', href: '#pm' },
         { id: 'contact', label: 'Contact Me', href: '#contact' }
     ];
+
+    // Project detail page menu items
+    const projectMenuItems = [
+        { id: 'hero', label: 'Overview', href: '#hero' },
+        { id: 'getting-started', label: 'Introduction', href: '#getting-started' },
+        { id: 'context', label: 'Context', href: '#context' },
+        { id: 'challenge', label: 'Challenge', href: '#challenge' },
+        { id: 'solutions', label: 'Solutions', href: '#solutions' },
+        { id: 'contribution', label: 'Contribution', href: '#contribution' },
+        { id: 'learnings', label: 'Learnings', href: '#learnings' }
+    ];
+
+    // Use appropriate menu items based on current page
+    const menuItems = isProjectPage ? projectMenuItems : homeMenuItems;
 
     // Section ID to text color mapping
     const sectionColors: { [key: string]: 'white' | 'black' } = {
@@ -154,8 +169,8 @@ const Navbar: React.FC = () => {
                                     onClick={(e) => {
                                         e.preventDefault();
                                         
-                                        // If on project page, navigate to home first
-                                        if (isProjectPage) {
+                                        // If on project page and clicking home menu items, navigate to home first
+                                        if (isProjectPage && !projectMenuItems.some(pItem => pItem.id === item.id)) {
                                             navigate('/');
                                             // Wait for navigation then scroll
                                             setTimeout(() => {
@@ -168,7 +183,7 @@ const Navbar: React.FC = () => {
                                                 }
                                             }, 100);
                                         } else {
-                                            // On home page, just scroll
+                                            // On same page, just scroll
                                             setSelectedItem(item.id);
                                             
                                             // Update text color when clicking

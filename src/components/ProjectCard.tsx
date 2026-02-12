@@ -46,7 +46,7 @@ export function ProjectCard({
       }}
     >
       
-        <div className="mb-8 p-6 bg-black rounded-3xl relative">
+        <div className="mb-16 p-6 bg-black rounded-3xl relative">
           <CardTitle className="mb-8">{title}</CardTitle>
           <CardHighlight className="mb-8">{highlight}</CardHighlight>
           <CardDescription className="mb-4">

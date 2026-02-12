@@ -111,11 +111,11 @@ export const projectDetails: { [key: string]: ProjectDetailData } = {
       ]
     },
     solutions: {
-      description: "We developed a comprehensive approach that combined education, technology, and gamification:",
+      description: "We developed a comprehensive approach that act as 'digital coach' and 'digital guard':",
       solutions: [
         {
           title: "Zone 2 Training Engine",
-          description: "Built a proprietary algorithm that calculates personalized Zone 2 heart rate ranges based on age, fitness level, and historical data. Real-time monitoring ensures users stay in the optimal zone for aerobic base building.",
+          description: "Implement TRIMP algorithm that calculates personalized Zone 2 heart rate ranges based on age, fitness level, and historical data. Real-time monitoring ensures users stay in the optimal zone for aerobic base building.",
           imageUrl: ""
         },
         {
@@ -124,15 +124,15 @@ export const projectDetails: { [key: string]: ProjectDetailData } = {
           imageUrl: ""
         },
         {
-          title: "Educational Content Integration",
-          description: "Integrated micro-learning modules that explain the science behind Zone 2 training, helping users understand why slowing down leads to better long-term results.",
+          title: "Adaptive Training Program",
+          description: "Instead of forcing users into a rigid plan, we built an adaptive system that adjusts workouts based on user feedback and performance trends, ensuring personalized progression.",
           imageUrl: ""
         }
       ]
     },
     contribution: {
-      role: "Lead iOS Developer",
-      description: "As the lead iOS developer, I was responsible for the entire app architecture and core feature implementation.",
+      role: "PM/iOS Developer",
+      description: "As the PM and iOS developer, I was responsible for the entire app architecture and core feature implementation.",
       contributions: [
         "Architected the app using SwiftUI and Combine for reactive data flow",
         "Implemented HealthKit integration for heart rate monitoring and workout tracking",
