@@ -1,3 +1,9 @@
+import coursaImg from '@/assets/images/coursa.svg';
+import cococoImg from '@/assets/images/cococo.svg';
+import navxbeautyImg from '@/assets/images/navxbeauty.svg';
+import binsightImg from '@/assets/images/binsight.svg';
+
+
 export interface Project {
   id: string;
   title: string;
@@ -49,14 +55,14 @@ export const projects: Project[] = [
     title: "Coursa",
     highlight: "Running, reimagined",
     description: "Most novices mistakenly prioritize speed, leading to immediate burnout. Coursa solves this by anchoring training in Zone 2 (aerobic base). Our evidence lies in the success of our 'Endurance First' approach, where we proved that slowing users down actually helped them run longer and more consistently without the breathlessness that typically causes them to quit.",
-    imageUrl: "/src/assets/images/coursa.svg"
+    imageUrl: coursaImg,
   },
   {
     id: "cococo",
     title: "Coco.co",
     highlight: "There is no way as such",
     description: "Cross-platform app with React Native",
-    imageUrl: "/src/assets/images/cococo.svg",
+    imageUrl: cococoImg,
     badges: ["React Native", "Expo", "TypeScript"]
   },
   {
@@ -64,7 +70,7 @@ export const projects: Project[] = [
     title: "NavXBeauty",
     highlight: "Redefine your beauty experience",
     description: "Partnered with FemaleDaily, I created an offline-based navigation app for JakartaXBeauty. The solution was created not only to benefit visitors, but also multiple stakeholders such as vendors and FemaleDaily itself. Leveraging Vision Framework and SwiftUI, NavXBeauty can provide your current location and show all the tenants location without needing an internet connection.",
-    imageUrl: "/src/assets/images/navxbeauty.svg",
+    imageUrl: navxbeautyImg,
     badges: ["React Native", "Expo", "TypeScript"]
   },
   {
@@ -72,7 +78,7 @@ export const projects: Project[] = [
     title: "Binsight",
     highlight: "Revolutionize your way of sorting trash",
     description: "Cross-platform app with React Native",
-    imageUrl: "/src/assets/images/binsight.svg",
+    imageUrl: binsightImg,
     badges: ["React Native", "Expo", "TypeScript"]
   },
   {
@@ -90,11 +96,11 @@ export const projectDetails: { [key: string]: ProjectDetailData } = {
   coursa: {
     projectTitle: "Coursa",
     projectTagline: "Running, reimagined",
-    heroImageUrl: "/src/assets/images/coursa.svg",
+    heroImageUrl: coursaImg,
     gettingStarted: {
       description: "Coursa is an innovative running app designed to help novice runners build endurance through Zone 2 training. The app focuses on sustainable training methods rather than speed, helping users avoid burnout and build long-term running habits.",
       technologies: ["Swift", "SwiftUI", "HealthKit", "CoreLocation", "Combine"],
-      imageUrl: "/src/assets/images/coursa.svg"
+      imageUrl: coursaImg
     },
     context: {
       description: "Most beginner runners make the same critical mistake: they run too fast, too soon. This leads to immediate burnout, injury, and ultimately giving up on running altogether. The market needed a solution that prioritized sustainable training over quick results.",
@@ -157,11 +163,11 @@ export const projectDetails: { [key: string]: ProjectDetailData } = {
   cococo: {
     projectTitle: "Coco.co",
     projectTagline: "There is no way as such",
-    heroImageUrl: "/src/assets/images/cococo.svg",
+    heroImageUrl: cococoImg,
     gettingStarted: {
       description: "A cross-platform mobile application built with React Native, delivering a seamless user experience across iOS and Android platforms.",
       technologies: ["React Native", "Expo", "TypeScript", "Redux"],
-      imageUrl: "/src/assets/images/cococo.svg"
+      imageUrl: cococoImg
     },
     context: {
       description: "The project aimed to create a unified mobile experience that works seamlessly across both major mobile platforms while maintaining native performance.",
@@ -209,11 +215,11 @@ export const projectDetails: { [key: string]: ProjectDetailData } = {
   navxbeauty: {
     projectTitle: "NavXBeauty",
     projectTagline: "Redefine your beauty experience",
-    heroImageUrl: "/src/assets/images/navxbeauty.svg",
+    heroImageUrl: navxbeautyImg,
     gettingStarted: {
       description: "Partnered with FemaleDaily to create an offline-based navigation app for JakartaXBeauty. The solution benefits visitors, vendors, and FemaleDaily by leveraging Vision Framework and SwiftUI for indoor navigation without internet connection.",
       technologies: ["Swift", "SwiftUI", "Vision Framework", "CoreLocation", "ARKit"],
-      imageUrl: "/src/assets/images/navxbeauty.svg"
+      imageUrl: navxbeautyImg
     },
     context: {
       description: "JakartaXBeauty is a major beauty expo attracting thousands of visitors. The challenge was to help attendees navigate the venue efficiently without relying on internet connectivity, which is often unreliable in large event spaces.",
@@ -276,11 +282,11 @@ export const projectDetails: { [key: string]: ProjectDetailData } = {
   binsight: {
     projectTitle: "Binsight",
     projectTagline: "Revolutionize your way of sorting trash",
-    heroImageUrl: "/src/assets/images/binsight.svg",
+    heroImageUrl: binsightImg,
     gettingStarted: {
       description: "An intelligent waste management application that uses machine learning to help users properly sort their trash, promoting environmental sustainability.",
       technologies: ["React Native", "Expo", "TypeScript", "TensorFlow Lite"],
-      imageUrl: "/src/assets/images/binsight.svg"
+      imageUrl: binsightImg
     },
     context: {
       description: "Improper waste sorting is a major environmental issue. Many people want to recycle but don't know which bin each item belongs to, leading to contaminated recycling streams.",
